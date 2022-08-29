@@ -1,1 +1,2 @@
-# Anime-Quize-Game
+# Anime-Quize_Stage 1-Game_This_is_just_a_Simple_anime_quize_game_but_as_you_move_to_stage_2_you_have_to_complete_stage_1_with_a_percentage_of_atleast_80%_you'll_see_that_but_being_called_an_OTAKU_On
+#Anime- Quize_Stage2-Stage_2_Is_more_difficult_than_stage_1
