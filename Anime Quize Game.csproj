@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A782C74F-5321-4071-92F0-02C56529D70C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Anime_Quize_Game</RootNamespace>
+    <AssemblyName>Anime Quiz Game</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Anime Quize Game.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CfrmStage1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CfrmStage1.Designer.cs">
+      <DependentUpon>CfrmStage1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CfrmStage2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CfrmStage2.Designer.cs">
+      <DependentUpon>CfrmStage2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CfrmStage1.resx">
+      <DependentUpon>CfrmStage1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CfrmStage2.resx">
+      <DependentUpon>CfrmStage2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Inori_Guilty Crown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kitagawa My dress up darling.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Levi Ackerman.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lloyd_Suppossed a kid from the last dungeon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lugh_World Finest Assassin reancinated as an acrosist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Meliodas and  Zwldris.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Minato .png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Minato.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\My Hero Academia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Naruto and Sasuke.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\questions.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rengoku and Akaza.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sasori.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Seven Deadly sins 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shisui Sharingan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Anime Quize Game.ico" />
+    <None Include="Resources\Anime quiz.wav" />
+    <None Include="Resources\Shu and Inori1.png" />
+    <None Include="Resources\Sasori Puppet11.png" />
+    <None Include="Resources\Pain_Yahiko1.png" />
+    <None Include="Resources\Nagato and Itach1.png" />
+    <None Include="Resources\Mycel Outbreak Company1.png" />
+    <None Include="Resources\Moonlight Fantasy1.png" />
+    <None Include="Resources\Konosuba1.png" />
+    <None Include="Resources\Konosba1.png" />
+    <None Include="Resources\Itachi1.png" />
+    <None Include="Resources\Gojo1.png" />
+    <None Include="Resources\Diablo1.png" />
+    <None Include="Resources\Android 171.png" />
+    <None Include="Resources\Shu and Inori.png" />
+    <None Include="Resources\Sasori Puppet1.png" />
+    <None Include="Resources\Pain_Yahiko.png" />
+    <None Include="Resources\Nagato and Itach.png" />
+    <None Include="Resources\Mycel Outbreak Company.png" />
+    <None Include="Resources\Moonlight Fantasy.png" />
+    <None Include="Resources\Konosuba.png" />
+    <None Include="Resources\Konosba.png" />
+    <None Include="Resources\Itachi.png" />
+    <None Include="Resources\Gojo.png" />
+    <None Include="Resources\Diablo.png" />
+    <None Include="Resources\Android 17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Stage1\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

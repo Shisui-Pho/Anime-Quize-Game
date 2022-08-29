@@ -1,0 +1,341 @@
+﻿/*Developer name     : Phiwokwakhe Khathwane 
+ * Available at      : phiwokwakhe299@gmail.com
+ * Git-Hub Id        : @Shisui-Pho
+ * Stack OverFlow Id : @Shisui-Pho
+ * Zapsplat          : @The_Collector
+ * Project Type      : Game 
+ * Project name      : Anime Quiz Game
+*/
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Media;
+
+namespace Anime_Quize_Game
+{
+    public partial class CfrmStage1 : Form
+    {
+        int iQuestionNumber = 0, iTotalQuestions, iCorrectAnswer, iScore;
+        double dPercentage = 0;
+
+        private void ClickAnswer(object sender, EventArgs e)
+        {
+           
+
+            Button btnChoice = (Button)sender;
+
+            int iChoice = int.Parse((string)btnChoice.Tag);
+
+            if (iChoice == iCorrectAnswer)
+                iScore++;
+            if(iQuestionNumber == iTotalQuestions)
+            {
+                string sMsg = "";
+                dPercentage = (double)(iScore / 20.0) * 100;
+
+                if (dPercentage < 30)
+                    sMsg = "You don't know much about anime yet";
+                else if (dPercentage < 50)
+                    sMsg = "Keep watching , you'll be an anime fan soon";
+                else if (dPercentage < 80)
+                    sMsg = "You know too much anime";
+                else if (dPercentage > 80)
+                    sMsg = "You are an OTAKU !!!";
+
+                MessageBox.Show("Score(20) : " + iScore + "\nPercentage " + dPercentage.ToString() +"%"+ "\n" + sMsg, "Results", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //iScore = 0;
+                //Prompt the user to move on to the next stage if the score is 80%+
+                if (dPercentage >= 80)
+                {
+                    if(MessageBox.Show("Do you want to go to the next stage ? " , "NEXT STAGE" , MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+		            {
+                          CfrmStage2 stage2 = new CfrmStage2();
+                          stage2.ShowDialog();
+		            }
+                }
+                iScore = 0;
+                iQuestionNumber = 0;
+                AskQuestion(iQuestionNumber);
+            }//Get the output after completing the quize
+
+            iQuestionNumber++;
+            AskQuestion(iQuestionNumber);
+
+        }//Click the correct answer
+
+        
+        public CfrmStage1()
+        {
+            InitializeComponent();
+            iTotalQuestions = 20;
+            PlaySound();
+        }//ctor 1
+
+        private void AskQuestion(int _QuestionNumber)
+        {
+            lblQuestion.Text = "Question : " + iQuestionNumber.ToString() + " of" + 20;
+            lblScore.Text = "Score : " + iScore;
+            switch (_QuestionNumber)
+            {
+                case 1:
+
+                    picQuestion.Image = Properties.Resources.Levi_Ackerman;
+                    lblQuestionNumber.Text = "What is the last name of this character ?";
+
+                    btnAnswer1.Text = "Uzumaki";
+                    btnAnswer2.Text = "Ackerman";
+                    btnAnswer3.Text = "Springer";
+                    btnAnswer4.Text = "Yeager";
+
+                    iCorrectAnswer = 2;
+                    break;
+
+                case 2:
+
+                    picQuestion.Image = Properties.Resources.Inori_Guilty_Crown;
+                    lblQuestionNumber.Text = "What is the name of this character ?";
+
+                    btnAnswer1.Text = "Inori";
+                    btnAnswer2.Text = "Arisa";
+                    btnAnswer3.Text = "Tsugumi";
+                    btnAnswer4.Text = "Mana";
+
+                    iCorrectAnswer = 1;
+                    break;
+
+                case 3:
+
+                    picQuestion.Image = Properties.Resources.Kitagawa_My_dress_up_darling;
+                    lblQuestionNumber.Text = "Who fell inlove with this character ?";
+
+                    btnAnswer1.Text = "Naruto";
+                    btnAnswer2.Text = "Sasuke";
+                    btnAnswer3.Text = "Eren";
+                    btnAnswer4.Text = "Gojo";
+
+                    iCorrectAnswer = 4;
+                    break;
+                case 4:
+
+                    picQuestion.Image = Properties.Resources.Lloyd_Suppossed_a_kid_from_the_last_dungeon;
+                    lblQuestionNumber.Text = "What is the name of this character ?";
+
+                    btnAnswer1.Text = "Lloyd";
+                    btnAnswer2.Text = "Satori";
+                    btnAnswer3.Text = "Eren";
+                    btnAnswer4.Text = "Naruto";
+
+                    iCorrectAnswer = 1;
+                    break;
+                case 5:
+
+                    picQuestion.Image = Properties.Resources.Lugh_World_Finest_Assassin_reancinated_as_an_acrosist;
+                    lblQuestionNumber.Text = "What is the mission of this character ?";
+
+                    btnAnswer1.Text = "Kill demon Lord ";
+                    btnAnswer2.Text = "Destroy Earth";
+                    btnAnswer3.Text = "Kill Hero";
+                    btnAnswer4.Text = "Save Earth";
+
+                    iCorrectAnswer = 3;
+                    break;
+                case 6:
+
+                    picQuestion.Image = Properties.Resources.Meliodas_and__Zwldris;
+                    lblQuestionNumber.Text = "Who are this two characters ?";
+
+                    btnAnswer1.Text = "Sasuke and Naruto";
+                    btnAnswer2.Text = "Eren and Armin";
+                    btnAnswer3.Text = "Meliodas and Zeldris";
+                    btnAnswer4.Text = "Deku and Kachan";
+
+                    iCorrectAnswer = 3;
+                    break;
+                case 7:
+
+                    picQuestion.Image = Properties.Resources.Minato;
+                    lblQuestionNumber.Text = "Who's father is this ?";
+
+                    btnAnswer1.Text = "Shikamaru";
+                    btnAnswer2.Text = "Naruto";
+                    btnAnswer3.Text = "Sai";
+                    btnAnswer4.Text = "Minato";
+
+                    iCorrectAnswer = 2;
+                    break;
+                case 8:
+
+                    picQuestion.Image = Properties.Resources.Minato_Cloak;
+                    lblQuestionNumber.Text = "Who is this ?";
+
+                    btnAnswer1.Text = "Minato";
+                    btnAnswer2.Text = "Kakashi";
+                    btnAnswer3.Text = "Naruto";
+                    btnAnswer4.Text = "Hashirama";
+
+                    iCorrectAnswer = 1;
+                    break;
+                case 9:
+
+                    picQuestion.Image = Properties.Resources.My_Hero_Academia;
+                    lblQuestionNumber.Text = "Which anime does this character belong to ?";
+
+                    btnAnswer1.Text = "Naruto";
+                    btnAnswer2.Text = "Demon Slayer";
+                    btnAnswer3.Text = "My Hero Academia";
+                    btnAnswer4.Text = "Guilty Crown";
+
+                    iCorrectAnswer = 3;
+                    break;
+
+                case 10:
+
+                    picQuestion.Image = Properties.Resources.Naruto_and_Sasuke;
+                    lblQuestionNumber.Text = "Who are this two ?";
+
+                    btnAnswer1.Text = "Kiba and Naruto";
+                    btnAnswer2.Text = "Sasuke and Naruto";
+                    btnAnswer3.Text = "Sasuke and Jugo ";
+                    btnAnswer4.Text = "Eren and Armin";
+
+                    iCorrectAnswer = 2;
+                    break;
+               case 11:
+
+                    picQuestion.Image = Properties.Resources.Rengoku_and_Akaza;
+                    lblQuestionNumber.Text = "Who won this fight ?";
+
+                    btnAnswer1.Text = "Rengoku";
+                    btnAnswer2.Text = "Draw";
+                    btnAnswer3.Text = "Akaza";
+                    btnAnswer4.Text = "Both die";
+
+                    iCorrectAnswer = 3;
+                    break;
+                case 12:
+
+                    picQuestion.Image = Properties.Resources.Sasori;
+                    lblQuestionNumber.Text = "Who is his patner in Akatsuki ?";
+
+                    btnAnswer1.Text = "Hidan";
+                    btnAnswer2.Text = "Deidara";
+                    btnAnswer3.Text = "Itachi";
+                    btnAnswer4.Text = "Konan";
+
+                    iCorrectAnswer = 2;
+                    break;
+
+                case 13:
+
+                    picQuestion.Image = Properties.Resources.Seven_Deadly_sins_2;
+                    lblQuestionNumber.Text = "Abriviation for this anime ?";
+
+                    btnAnswer1.Text = "DS";
+                    btnAnswer2.Text = "TSDS";
+                    btnAnswer3.Text = "MHA";
+                    btnAnswer4.Text = "JK";
+
+                    iCorrectAnswer = 2;
+                    break;
+                case 14:
+
+                    picQuestion.Image = Properties.Resources.Shisui_Sharingan;
+                    lblQuestionNumber.Text = "What is the name of this doujutsu?";
+
+                    btnAnswer1.Text = "Rinnegan";
+                    btnAnswer2.Text = "Byakugan";
+                    btnAnswer3.Text = "Sharingan";
+                    btnAnswer4.Text = "Tenseigan";
+
+                    iCorrectAnswer = 3;
+                    break;
+                case 15:
+
+                    picQuestion.Image = Properties.Resources.Shisui_Sharingan;
+                    lblQuestionNumber.Text = "Who's sharingan is this ?";
+
+                    btnAnswer1.Text = "Sasuke";
+                    btnAnswer2.Text = "Kakashi";
+                    btnAnswer3.Text = "Madara";
+                    btnAnswer4.Text = "Shisui";
+
+                    iCorrectAnswer = 4;
+                    break;
+                case 16:
+
+                    picQuestion.Image = Properties.Resources.questions;
+                    lblQuestionNumber.Text = "___ is a true friend of Madara ?";
+
+                    btnAnswer1.Text = "Obito";
+                    btnAnswer2.Text = "Black Zetsu";
+                    btnAnswer3.Text = "Hashirama";
+                    btnAnswer4.Text = "Nagato";
+
+                    iCorrectAnswer = 3;
+                    break;
+                case 17:
+
+                    picQuestion.Image = Properties.Resources.questions;
+                    lblQuestionNumber.Text = "Who has One For All ?";
+
+                    btnAnswer1.Text = "Bakugo";
+                    btnAnswer2.Text = "Deku";
+                    btnAnswer3.Text = "Shoto";
+                    btnAnswer4.Text = "Lida";
+
+                    iCorrectAnswer = 2;
+                    break;
+                case 18:
+
+                    picQuestion.Image = Properties.Resources.questions;
+                    lblQuestionNumber.Text = "Which anime is completed ?";
+
+                    btnAnswer1.Text = "One Piece";
+                    btnAnswer2.Text = "Naruto";
+                    btnAnswer3.Text = "Demon Slayer";
+                    btnAnswer4.Text = "Death Note";
+
+                    iCorrectAnswer = 4;
+                    break;
+                case 19:
+
+                    picQuestion.Image = Properties.Resources.questions;
+                    lblQuestionNumber.Text = "Who is stronger ?";
+
+                    btnAnswer1.Text = "Saitama";
+                    btnAnswer2.Text = "Goku";
+                    btnAnswer3.Text = "Naruto";
+                    btnAnswer4.Text = "Ichigo";
+
+                    iCorrectAnswer = 1;
+                    break;
+                case 20:
+
+                    picQuestion.Image = Properties.Resources.questions;
+                    lblQuestionNumber.Text = "Who did Naruto marry?";
+
+                    btnAnswer1.Text = "Sakura";
+                    btnAnswer2.Text = "Hinata";
+                    btnAnswer3.Text = "Ino";
+                    btnAnswer4.Text = "Temari";
+
+                    iCorrectAnswer = 2;
+                    break;
+            }//Change  questions
+
+        }//Get the Questions here
+        static void PlaySound()
+        {
+            SoundPlayer plySound = new SoundPlayer(Properties.Resources.Anime_quiz);
+            plySound.PlayLooping();
+        }//Play sound
+
+    }//Class 
+}//namespace
